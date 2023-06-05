@@ -13,12 +13,12 @@ const client = new Client({
 });
 
 const chatGptEndpoint = 'https://api.openai.com/v1/chat/completions';
-
+const modRoleID = '1115360144570724362';
 
 
 const prefix = 'uwu'; // Präfix für den Befehl
 
-let stop = false
+
 
 client.once('ready', () => {
     console.log('Bot ist bereit!');
@@ -46,6 +46,7 @@ client.on('messageCreate', message => {
     if (command === 'ping') {
         message.channel.send('pong');
     }
+
     if (command === 'kill') {
         const targetName = message.mentions.users.first();
         const authorName = message.author;
@@ -55,16 +56,18 @@ client.on('messageCreate', message => {
         }
         const member = message.guild.members.cache.get(targetName.id);
         if (member) {
-            message.channel.send(`${'@' + authorName.id} hat ${'@' + targetName.id} gekillt`);
+            message.channel.send(`<@${authorName.id}> hat <@${targetName.id}> gekillt`);
         }
     }
+
     if (command === 'mach') {
         const first = args[0]
         const second = args[1]
         const third = args[2]
         const fourth = args[3]
+        const member = message.member;
 
-        if (authorID === '889880980893098015' && first === 'sie' || authorID === '1009429505326206976' && first === 'sie') {
+        if (member.roles.cache.has(modRoleID)) {
             if (second === 'alli' && third === 'fertig') { insultAll(first, message) }
         } else {
             const targetName = message.mentions.users.first();
@@ -73,12 +76,10 @@ client.on('messageCreate', message => {
                 return;
             }
             message.channel.send(`UWU macht <@${targetName.id}> fertig`)
+            client.users.send(targetName.id, `UWU macht <@${targetName.id}> fertig`);
         }
     }
-    if (command === 'toggle') {
-        stop = true
-        message.channel.send(`Der bot ist gerade auf ${stop}`)
-    }
+
     if (command === 'fragen') {
         let usermessage
         args.forEach(element => {
@@ -104,9 +105,14 @@ async function getPlayers(guild) {
 async function insultAll(first, message) {
     let playerArr = []
     playerArr = await getPlayers(message.guild)
+    let stop = false;
+    let count = 0;
+
 
     playerArr.forEach(user => {
         if (!stop) { message.channel.send(`UWU macht <@${user.id}> fertig`) }
+        count ++;
+        if(count >= 5){count = 0; }
     });
 }
 
@@ -120,7 +126,7 @@ async function GPTChatCommunication(usermassege, message) {
     }, {
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer YOUR_API_KEY`,  // Dein OpenAI API-Schlüssel hier
+            'Authorization': `Bearer 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`,  // Dein OpenAI API-Schlüssel hier
         },
     });
 
