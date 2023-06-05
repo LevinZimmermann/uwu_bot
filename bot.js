@@ -1,6 +1,6 @@
 const slot = require('./lib/commands/slots/slot.js')
-
-
+const config = require('./config.json')
+const axios = require('axios');
 const { Client, GatewayIntentBits } = require('discord.js');
 
 const client = new Client({
@@ -12,7 +12,13 @@ const client = new Client({
     ],
 });
 
+const chatGptEndpoint = 'https://api.openai.com/v1/chat/completions';
+
+
+
 const prefix = 'uwu'; // Präfix für den Befehl
+
+let stop = false
 
 client.once('ready', () => {
     console.log('Bot ist bereit!');
@@ -42,30 +48,43 @@ client.on('messageCreate', message => {
     }
     if (command === 'kill') {
         const targetName = message.mentions.users.first();
-        const authorName = message.author.username;
+        const authorName = message.author;
         if (!targetName) {
             message.channel.send('Du hast keinen Benutzer erwähnt!');
             return;
         }
         const member = message.guild.members.cache.get(targetName.id);
         if (member) {
-            message.channel.send(`@${authorName} hat @${targetName.username} gekillt`);
+            message.channel.send(`${'@' + authorName.id} hat ${'@' + targetName.id} gekillt`);
         }
     }
-    if(command === 'mach' && authorID === '889880980893098015' || command === 'mach' && authorID === '1009429505326206976'){
+    if (command === 'mach') {
         const first = args[0]
         const second = args[1]
         const third = args[2]
-        
-        if(first === 'die' && second === 'alli' && third === 'fertig'){
-            let playerArr = [] 
-            playerArr = getPlayers(message.guild)
+        const fourth = args[3]
 
-            console.log(playerArr)
-            // playerArr.forEach(user => {
-            //     message.channel.send(`@${user} esch e negg.. nätte Mönsch`)
-            // });
+        if (authorID === '889880980893098015' && first === 'sie' || authorID === '1009429505326206976' && first === 'sie') {
+            if (second === 'alli' && third === 'fertig') { insultAll(first, message) }
+        } else {
+            const targetName = message.mentions.users.first();
+            if (!targetName) {
+                message.channel.send('Du hast keinen Benutzer erwähnt!');
+                return;
+            }
+            message.channel.send(`UWU macht <@${targetName.id}> fertig`)
         }
+    }
+    if (command === 'toggle') {
+        stop = true
+        message.channel.send(`Der bot ist gerade auf ${stop}`)
+    }
+    if (command === 'fragen') {
+        let usermessage
+        args.forEach(element => {
+            usermessage += element
+        })
+        GPTChatCommunication(usermessage, message)
     }
 });
 
@@ -74,12 +93,40 @@ async function getPlayers(guild) {
         const members = await guild.members.fetch();
         const players = members
             .filter(member => !member.user.bot) // Filtert Bots aus
-            .map(member => member.user.username); // Verwendet den Benutzernamen der Mitglieder
-
+            .map(member => member.user); // Verwendet den Benutzernamen der Mitglieder
         return players;
     } catch (error) {
         throw new Error('Fehler beim Abrufen der Mitgliederliste.');
     }
 }
 
-client.login('MTExNTE2OTU0NDI3MzY3MDE5Ng.GX8pwK.acuVJVV2tfb1k7PuTlCMu27YxVcdb2My_lTsd8');
+
+async function insultAll(first, message) {
+    let playerArr = []
+    playerArr = await getPlayers(message.guild)
+
+    playerArr.forEach(user => {
+        if (!stop) { message.channel.send(`UWU macht <@${user.id}> fertig`) }
+    });
+}
+
+async function GPTChatCommunication(usermassege, message) {
+    // Deine Logik für den Aufruf der ChatGPT-API hier
+    const response = await axios.post(chatGptEndpoint, {
+        prompt: usermassege,  // Die Benutzereingabe als ChatGPT-Prompt verwenden
+        max_tokens: 50,  // Maximale Anzahl von Tokens für die Antwort begrenzen
+        temperature: 0.7,  // Temperatur für die Antwortkontrolle
+        model: 'gpt-3.5-turbo',  // Das gewünschte GPT-Modell
+    }, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer YOUR_API_KEY`,  // Dein OpenAI API-Schlüssel hier
+        },
+    });
+
+    // Die Antwort aus der API extrahieren und in den Discord-Channel senden
+    const reply = response.data.choices[0].text.trim();
+    message.channel.send(reply);
+}
+
+client.login(config.discord.token);
