@@ -1,7 +1,7 @@
 const slot = require('./lib/commands/slots/slot.js')
 const config = require('./config.json')
 const axios = require('axios');
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 
 const client = new Client({
     intents: [
@@ -16,15 +16,25 @@ const chatGptEndpoint = 'https://api.openai.com/v1/chat/completions';
 const modRoleID = '1115360144570724362';
 
 
-const prefix = 'uwu'; // Präfix für den Befehl
+const prefix = 'artemis'; // Präfix für den Befehl
 
 
 client.once('ready', () => {
-    console.log('Bot ist bereit!');
+    console.log('Bot is ready!');
 });
 
 let stop = false;
 
+
+const commands = [
+    { name: 'slot', value: 'Startet ein Slot-Spiel.' },
+    { name: 'help', value: 'Zeigt das Inhaltsverzeichnis der verfügbaren Befehle an.' },
+    { name: 'ping', value: 'Antwortet mit "pong".' },
+    { name: 'kys', value: 'Stoppt den Insult-All-Prozess (nur für Moderatoren).' },
+    { name: 'kill', value: 'Tötet einen Benutzer, indem er ihn "killt" (nur für Moderatoren).' },
+    { name: 'mach', value: 'Macht einen Benutzer fertig (nur für Moderatoren) oder sendet eine persönliche Nachricht an einen Benutzer.' },
+    { name: 'fragen', value: 'Stellt eine Frage an den Chatbot.' }
+];
 
 client.on('messageCreate', message => {
     const UserMessage = message.content.toLowerCase()
@@ -35,7 +45,16 @@ client.on('messageCreate', message => {
     const authorID = message.author.id;
 
     if (command === 'help') {
-        message.channel.send('ich kann auch nicht helfen');
+        const embed = new EmbedBuilder()
+            .setColor('#0099ff')
+            .setTitle('Inhaltsverzeichnis der Befehle')
+            .setDescription('Hier ist das Inhaltsverzeichnis der verfügbaren Befehle:')
+            .addFields(commands)
+            .setThumbnail(client.user.displayAvatarURL())
+            .setTimestamp();
+
+
+        message.channel.send({ embeds: [embed] });
     }
 
     if (command === 'slot') {
@@ -59,13 +78,21 @@ client.on('messageCreate', message => {
     if (command === 'kill') {
         const targetName = message.mentions.users.first();
         const authorName = message.author;
+
         if (!targetName) {
             message.channel.send('Du hast keinen Benutzer erwähnt!');
             return;
         }
         const member = message.guild.members.cache.get(targetName.id);
         if (member) {
-            message.channel.send(`<@${authorName.id}> hat <@${targetName.id}> gekillt`);
+            const embed = new EmbedBuilder()
+                .setColor('#0099ff')
+                .setTitle(`KILL!`)
+                .setDescription(`<@${authorName.name}> hat <@${targetName.name}> gekillt` + '\n' + 'https://thumbs.gfycat.com/BothPlasticIslandwhistler-size_restricted.gif')
+                .setTimestamp();
+
+
+            message.channel.send({ embeds: [embed] });
         }
     }
 
@@ -76,8 +103,8 @@ client.on('messageCreate', message => {
         const fourth = args[3]
         const member = message.member;
 
-        if (member.roles.cache.has(modRoleID)) {
-            if (second === 'alli' && third === 'fertig') { insultAll(first, message) }
+        if (member.roles.cache.has(modRoleID) && second === 'alli' && third === 'fertig') {
+            insultAll(first, message)
         } else {
             const targetName = message.mentions.users.first();
             if (!targetName) {
@@ -85,7 +112,9 @@ client.on('messageCreate', message => {
                 return;
             }
             message.channel.send(`UWU macht <@${targetName.id}> fertig`)
-            client.users.send(targetName.id, `UWU macht <@${targetName.id}> fertig`);
+            for(let i = 0; i <= 10; i++){
+                client.users.send(targetName.id, `Dich mach ich fertig <@${targetName.id}>`);
+            }
         }
     }
 
