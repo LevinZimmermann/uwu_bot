@@ -1,6 +1,9 @@
 const slot = require('./lib/commands/slots/slot.js')
 const config = require('./config.json')
 const axios = require('axios');
+const gifLink = require('./giflink.json')
+
+// initialize the discord variables
 const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 
 const client = new Client({
@@ -87,8 +90,8 @@ client.on('messageCreate', message => {
         if (member) {
             const embed = new EmbedBuilder()
                 .setColor('#0099ff')
-                .setTitle(`KILL!`)
-                .setDescription(`<@${authorName.name}> hat <@${targetName.name}> gekillt` + '\n' + 'https://thumbs.gfycat.com/BothPlasticIslandwhistler-size_restricted.gif')
+                .setTitle(`KILL!`) // hier wird die ausgabe in den Chat etabliert
+                .addFields(`<@${authorName.name}> hat <@${targetName.name}> gekillt` + '\n' + gifLink.kill[Math.floor(Math.random(0, gifLink.kill.length()) * 10)])
                 .setTimestamp();
 
 
