@@ -1,4 +1,4 @@
-const slot = require('./lib/commands/slots/slot.js')
+const slot = require('./modules/commands/slots/slot.js')
 const config = require('./config.json')
 const axios = require('axios');
 const { Client, GatewayIntentBits } = require('discord.js');
