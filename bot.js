@@ -19,10 +19,12 @@ const modRoleID = '1115360144570724362';
 const prefix = 'uwu'; // Präfix für den Befehl
 
 
-
 client.once('ready', () => {
     console.log('Bot ist bereit!');
 });
+
+let stop = false;
+
 
 client.on('messageCreate', message => {
     const UserMessage = message.content.toLowerCase()
@@ -45,6 +47,13 @@ client.on('messageCreate', message => {
 
     if (command === 'ping') {
         message.channel.send('pong');
+    }
+
+    if (command === 'kys') {
+        if (member.roles.cache.has(modRoleID) && second === 'alli' && third === 'fertig') {
+            stop = true;
+            message.channel.send('Insult-All-Prozess wurde gestoppt.');
+        }
     }
 
     if (command === 'kill') {
@@ -105,15 +114,17 @@ async function getPlayers(guild) {
 async function insultAll(first, message) {
     let playerArr = []
     playerArr = await getPlayers(message.guild)
-    let stop = false;
-    let count = 0;
+    stop = false; // Zurücksetzen des Flags für jeden Aufruf
 
+    for (const player of playerArr) {
+        if (stop) {
+            console.log('Stopping the insultAll process.');
+            break;
+        }
 
-    playerArr.forEach(user => {
-        if (!stop) { message.channel.send(`UWU macht <@${user.id}> fertig`) }
-        count ++;
-        if(count >= 5){count = 0; }
-    });
+        message.channel.send(`UWU macht <@${player.id}> fertig`)
+        await new Promise(resolve => setTimeout(resolve, 1000));
+    }
 }
 
 async function GPTChatCommunication(usermassege, message) {
