@@ -1,0 +1,180 @@
+{
+    "animeSuggestions": [
+        {
+            "name": "Highschool DXD",
+            "link": "https://aniworld.to/anime/stream/highschool-dxd",
+            "evaluation": "4.5 ★★★★✮",
+            "language": "German, Japanes",
+            "showStage": "Aniworld.to",
+            "nsfw": true
+        },
+        {
+            "name": "Beast Tamer",
+            "link": "https://www.crunchyroll.com/series/G8DHV743V/beast-tamer",
+            "evaluation": "4.7 ★★★★✮",
+            "language": "Japanes",
+            "showStage": "Crunchyroll.com",
+            "nsfw": false
+        },
+        {
+            "name": "In another world with my smartphone",
+            "link": "https://www.crunchyroll.com/series/GYQ4ZWV46/in-another-world-with-my-smartphone",
+            "evaluation": "4.4 ★★★★✮",
+            "language": "German, Japanes, English",
+            "showStage": "Crunchyroll.com",
+            "nsfw": true
+        },
+        {
+            "name": "Assassins Pride",
+            "link": "https://aniworld.to/anime/stream/assassins-pride",
+            "evaluation": "4.5 ★★★★✮",
+            "language": "German, Japanes",
+            "showStage": "Aniworld.to",
+            "nsfw": false
+        },
+        {
+            "name": "Edens Zero",
+            "link": "https://aniworld.to/anime/stream/edens-zero",
+            "evaluation": "4.5 ★★★★✮",
+            "language": "German, Japanes",
+            "showStage": "Aniworld.to",
+            "nsfw": true
+        },
+        {
+            "name": "Seraph of the End",
+            "link": "https://aniworld.to/anime/stream/seraph-of-the-end",
+            "evaluation": "4.5 ★★★★✮",
+            "language": "German, Japanes",
+            "showStage": "Aniworld.to",
+            "nsfw": false
+        },
+        {
+            "name": "Rascal does not dream of bunny girl senpai",
+            "link": "https://aniworld.to/anime/stream/rascal-does-not-dream-of-bunny-girl-senpai",
+            "evaluation": "4.5 ★★★★✮",
+            "language": "German, Japanes",
+            "showStage": "Aniworld.to",
+            "nsfw": true
+        },
+        {
+            "name": "Attack on Titan",
+            "link": "https://www.crunchyroll.com/de/attack-on-titan",
+            "evaluation": "5 ★★★★★",
+            "language": "Japanisch, Deutsch",
+            "platform": "Crunchyroll.com",
+            "nsfw": false
+        },
+        {
+            "name": "My Hero Academia",
+            "link": "https://aniworld.to/anime/stream/my-hero-academia",
+            "evaluation": "4.8 ★★★★✮",
+            "language": "Japanisch, Englisch",
+            "platform": "Aniworld.to",
+            "nsfw": false
+        },
+        {
+            "name": "Death Note",
+            "link": "https://aniworld.to/anime/stream/death-note",
+            "evaluation": "4.7 ★★★★✮",
+            "language": "Japanisch, Deutsch",
+            "showStage": "Aniworld.to",
+            "nsfw": false
+        },
+        {
+            "name": "One Piece",
+            "link": "https://www.crunchyroll.com/de/one-piece",
+            "evaluation": "4.9 ★★★★✮",
+            "language": "Japanisch, Deutsch",
+            "platform": "Crunchyroll.com",
+            "nsfw": false
+        },
+        {
+            "name": "Naruto",
+            "link": "https://www.crunchyroll.com/de/naruto",
+            "evaluation": "4.6 ★★★★✮",
+            "language": "Japanisch, Deutsch",
+            "platform": "Crunchyroll.com",
+            "nsfw": false
+        },
+        {
+            "name": "Fullmetal Alchemist: Brotherhood",
+            "link": "https://aniworld.to/anime/stream/fullmetal-alchemist-brotherhood",
+            "evaluation": "4.9 ★★★★✮",
+            "language": "Japanisch, Deutsch",
+            "showStage": "Aniworld.to",
+            "nsfw": false
+        },
+        {
+            "name": "Steins;Gate",
+            "link": "https://aniworld.to/anime/stream/steins-gate",
+            "evaluation": "4.8 ★★★★✮",
+            "language": "Japanisch, Deutsch",
+            "showStage": "Aniworld.to",
+            "nsfw": false
+        },
+        {
+            "name": "Code Geass: Lelouch of the Rebellion",
+            "link": "https://aniworld.to/anime/stream/code-geass-lelouch-of-the-rebellion",
+            "evaluation": "4.8 ★★★★✮",
+            "language": "Japanisch, Deutsch",
+            "showStage": "Aniworld.to",
+            "nsfw": false
+        },
+        {
+            "name": "Hunter x Hunter",
+            "link": "https://www.crunchyroll.com/de/hunter-x-hunter",
+            "evaluation": "4.9 ★★★★✮",
+            "language": "Japanisch, Deutsch",
+            "platform": "Crunchyroll.com",
+            "nsfw": false
+        },
+        {
+            "name": "Sword Art Online",
+            "link": "https://aniworld.to/anime/stream/sword-art-online",
+            "evaluation": "4.5 ★★★★✮",
+            "language": "Japanisch, Deutsch",
+            "platform": "Aniworld.to",
+            "nsfw": false
+        },
+        {
+            "name": "One Punch Man",
+            "link": "https://aniworld.to/anime/stream/one-punch-man",
+            "evaluation": "4.8 ★★★★✮",
+            "language": "Japanisch, Deutsch",
+            "platform": "Aniworld.to",
+            "nsfw": false
+        },
+        {
+            "name": "Demon Slayer: Kimetsu no Yaiba",
+            "link": "https://www.crunchyroll.com/de/demon-slayer-kimetsu-no-yaiba",
+            "evaluation": "4.9 ★★★★✮",
+            "language": "Japanisch, Deutsch",
+            "platform": "Crunchyroll.com",
+            "nsfw": false
+        },
+        {
+            "name": "Your Lie in April",
+            "link": "https://aniworld.to/anime/stream/your-lie-in-april",
+            "evaluation": "4.7 ★★★★✮",
+            "language": "Japanisch, Deutsch",
+            "platform": "Aniworld.to",
+            "nsfw": false
+        },
+        {
+            "name": "Fate/stay night: Unlimited Blade Works",
+            "link": "https://www.crunchyroll.com/de/fatestay-night-unlimited-blade-works",
+            "evaluation": "4.7 ★★★★✮",
+            "language": "Japanisch, Deutsch",
+            "platform": "Crunchyroll.com",
+            "nsfw": false
+        },
+        {
+            "name": "Haikyu!!",
+            "link": "https://www.crunchyroll.com/de/haikyu",
+            "evaluation": "4.9 ★★★★✮",
+            "language": "Japanisch, Deutsch",
+            "platform": "Crunchyroll.com",
+            "nsfw": false
+        }
+    ]
+}
