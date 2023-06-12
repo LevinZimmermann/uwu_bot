@@ -9,16 +9,16 @@ const Animes = require("./src/jsons/anime.json");
 const { Client, GatewayIntentBits, EmbedBuilder } = require("discord.js");
 
 // import all Modules
+const ban = require("./src/modules/ban/ban.js");
 const help = require("./src/modules/help/help.js");
 const slot = require("./src/modules/slot/slot.js");
 const ping = require("./src/modules/ping/ping.js");
-const stopInsultAll = require("./src/modules/stopInsultAll/stopInsultAll.js");
 const kill = require("./src/modules/kill/kill.js");
 const mach = require("./src/modules/mach/mach.js");
+const animes = require("./src/modules/animes/animes.js");
 const fragen = require("./src/modules/fragen/fragen.js");
 const orakel = require("./src/modules/orakel/orakel.js");
-const ban = require("./src/modules/ban/ban.js");
-const animes = require("./src/modules/animes/animes.js");
+const stopInsultAll = require("./src/modules/mach/stopInsultAll.js");
 const invalidCommand = require("./src/modules/invalidCommand/invalidCommand.js");
 
 // variable inizialize
@@ -65,7 +65,7 @@ client.on("messageCreate", (message) => {
     } else if (command === "ban") {
       const targetName = message.mentions.users.first();
       if(targetName === undefined){message.reply("Invalid user ID or mention."); }
-      else{ban(client, message, args, EmbedBuilder, gifLink, modRoleID, targetName.id);}
+      else{ban(client, message, args, EmbedBuilder, gifLink, modRoleID, targetName);}
     } else if (command === "animes") {
       animes(client, message, args, EmbedBuilder, Animes);
     } else {
