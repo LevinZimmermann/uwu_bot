@@ -3,9 +3,9 @@
     "axios": "^1.4.0",
     "discord.js": "^14.11.0"
   },
-  "name": "uwu_bot",
-  "description": "",
-  "version": "1.0.0",
+  "name": "artemis_bot",
+  "description": "This is a powerfull bot, to administrate and controll your Discord-Server. When a user lies to hard, then u can break their mental healt.",
+  "version": "2.1.5",
   "main": "bot.js",
   "devDependencies": {},
   "scripts": {
