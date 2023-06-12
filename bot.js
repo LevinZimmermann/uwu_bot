@@ -63,9 +63,7 @@ client.on("messageCreate", (message) => {
     } else if (command === "orakel") {
       orakel(client, message, args, EmbedBuilder, config);
     } else if (command === "ban") {
-      const targetName = message.mentions.users.first();
-      if(targetName === undefined){message.reply("Invalid user ID or mention."); }
-      else{ban(client, message, args, EmbedBuilder, gifLink, modRoleID, targetName);}
+      ban(client, message, args, EmbedBuilder, gifLink, modRoleID)
     } else if (command === "animes") {
       animes(client, message, args, EmbedBuilder, Animes);
     } else {

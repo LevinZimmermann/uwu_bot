@@ -4,25 +4,29 @@ module.exports = function (
   args,
   EmbedBuilder,
   gifLink,
-  modRoleID,
-  targetName
+  modRoleID
 ){
   const member = message.member;
+
+  const targetName = message.mentions.users.first();
+
+  console.log("ban command executing")
+
   if (!member.roles.cache.has(modRoleID)) return;
 
   try {
     let request = "";
     args.forEach((letter) => {
-      if (letter != "<@" + targetName + ">") {
+      if (letter != "<@" + targetName.id + ">") {
         request += letter + " ";
       }
     });
 
-    let userID = targetName;
+    if(request.length <= 0) return; 
+
+    let userID = targetName.id;
 
     const targetID = client.users.cache.get(userID);
-
-    console.log(userID);
 
     if (userID == "") {
       message.reply("Invalid user ID or mention.");

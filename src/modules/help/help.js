@@ -13,6 +13,8 @@ module.exports = function (client, message, args, EmbedBuilder) {
         { name: "animes", value: "Schlägt einen Anime vor." },
     ];
 
+    console.log("help command executing")
+
     const embed = new EmbedBuilder()
         .setColor("#0099ff")
         .setTitle("Inhaltsverzeichnis der Befehle")

@@ -2,6 +2,8 @@ module.exports = function (client, message, args, EmbedBuilder, Animes) {
   const authorName = message.author;
   let anime;
 
+  console.log("animes command executing")
+
   do {
     anime =
       Animes.animeSuggestions[
