@@ -63,3 +63,38 @@ To add or modify commands, follow these steps:
 4. Add an `else if` statement in the `messageCreate` event handler to handle the command invocation.
 5. Test the bot with the new command and make any necessary adjustments.
 
+## Config.json
+
+To add the config.json file, enter the following code into the config.json file.
+
+```
+{
+  "discord": {
+    "token": "YOUR_DISCORD_TOKEN",
+    "modRoleId": "IF_YOU_HAVE_A_MODROLEID"
+  },
+  "orakel": {
+    // dont touch the following code!
+    "answers": [
+      { "name": "orakel", "value": "JA", "probability": "90", "color": "#00ff00" },
+      { "name": "orakel", "value": "NEIN", "probability": "90", "color": "#ff0000" },
+      { "name": "orakel", "value": "VIELLEICHT", "probability": "80", "color":"#ffa500"},
+      { "name": "orakel", "value": "EHER JA", "probability": "70", "color":"#ffa500" },
+      { "name": "orakel", "value": "EHER NEIN", "probability": "70", "color":"#ffa500" },
+      { "name": "orakel", "value": "UWU", "probability": "5", "color": "#ffc0cb" }
+    ]
+  }
+}
+```
+
+Die config.json ist eine externe Konfigurationsdatei für den Code. Sie enthält zwei Hauptabschnitte:
+
+- `Discord`: Hier werden die Discord-Informationen gespeichert, wie der Token des Bots und die Mod-Rollen-ID.
+- `orakel`: Hier werden die Antworten des Orakel-Moduls gespeichert. Jede Antwort besteht aus einem Namen, einem Wert, einer Wahrscheinlichkeit und einer Farbe.
+
+Diese Datei ermöglicht es, sensible Informationen und Konfigurationen vom eigentlichen Code zu trennen und sie leicht anzupassen oder zu aktualisieren.
+
+Stelle sicher, dass die config.json im gleichen Verzeichnis wie der restliche Code liegt und dass die Werte korrekt und gültig sind.
+
+
+Bitte beachte, dass es sich hierbei um eine Beschreibung der `config.json` handelt und nicht um den eigentlichen Code.
