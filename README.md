@@ -87,14 +87,14 @@ To add the config.json file, enter the following code into the config.json file.
 }
 ```
 
-Die config.json ist eine externe Konfigurationsdatei für den Code. Sie enthält zwei Hauptabschnitte:
+The config.json is an external configuration file for the code. It contains two main sections:
 
-- `Discord`: Hier werden die Discord-Informationen gespeichert, wie der Token des Bots und die Mod-Rollen-ID.
-- `orakel`: Hier werden die Antworten des Orakel-Moduls gespeichert. Jede Antwort besteht aus einem Namen, einem Wert, einer Wahrscheinlichkeit und einer Farbe.
-
-Diese Datei ermöglicht es, sensible Informationen und Konfigurationen vom eigentlichen Code zu trennen und sie leicht anzupassen oder zu aktualisieren.
-
-Stelle sicher, dass die config.json im gleichen Verzeichnis wie der restliche Code liegt und dass die Werte korrekt und gültig sind.
+- `Discord`: This section stores Discord-related information such as the bot's token and the mod role ID.
+- `orakel`: This section stores the answers for the Orakel module. Each answer consists of a name, a value, a probability, and a color.
 
 
-Bitte beachte, dass es sich hierbei um eine Beschreibung der `config.json` handelt und nicht um den eigentlichen Code.
+This file allows for separating sensitive information and configurations from the actual code, making it easier to modify or update them.
+
+Make sure that the config.json is located in the same directory as the rest of the code and that the values are correct and valid.
+
+Please note that this is a description of the config.json and not the actual code.
