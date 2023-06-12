@@ -2,8 +2,8 @@ const axios = require("axios");
 
 // load jsons
 const config = require("./config.json");
-const gifLink = require("./src/jsons/giflink.json");
-const Animes = require("./src/jsons/anime.json");
+const gifLink = require("./resources/giflink.json");
+const Animes = require("./resources/anime.json");
 
 // initialize the discord variables
 const { Client, GatewayIntentBits, EmbedBuilder } = require("discord.js");
